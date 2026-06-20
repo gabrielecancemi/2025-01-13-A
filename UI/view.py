@@ -34,6 +34,8 @@ class View(ft.UserControl):
         self.dd_localization = ft.Dropdown(label="Localization",
                                hint_text="Selezionare un tipo di localization.", width=300)
 
+        self.controller.fill_localizations()
+
         self.btn_graph = ft.ElevatedButton(text="Crea Grafo",
                                            tooltip="Crea il grafo",
                                            on_click=self._controller.handle_graph)
@@ -44,7 +46,7 @@ class View(ft.UserControl):
 
         self.btn_path = ft.ElevatedButton(text="Cammino",
                                           tooltip="Trova cammino ottimo",
-                                          on_click=self._controller.handle_path)
+                                          on_click=self._controller.handle_path, disabled=True)
 
         row1 = ft.Row([self.dd_localization, self.btn_graph, self.btn_analizza_grafo, self.btn_path],
                       alignment=ft.MainAxisAlignment.SPACE_EVENLY)
